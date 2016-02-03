@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards
   root controller: 'home', action: 'index'
 
   resources :decks
