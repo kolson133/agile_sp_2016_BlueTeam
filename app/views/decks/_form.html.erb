@@ -29,7 +29,10 @@
   <div class="controls">
     <%= f.select(:color_type, options_for_select([['None', ''], ['Lime', '#00ff00'], ['Teal', '#00FFFF'], ['Purple', '#CC0099'], ['Orange', '#ff8c1a']])) %>
   </div>
-<<<<<<< HEAD
+  <div class="image">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %><br>
+  </div>
   <div class="control">
     <%= f.label "Change Font Style", class: 'control-label' %>
   </div>
@@ -37,12 +40,6 @@
     <%= f.select(:font_type, options_for_select([['None', ''], ['Bold', 'bold'], ['Italic', 'italic'], ['Small Caps', 'small-caps'], ['Oblique', 'oblique']])) %>
   </div>
   <br>
-=======
-  <div class="image">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %><br>
-  </div>
->>>>>>> master
   <div class="actions">
     <%= f.submit %>
   </div>
