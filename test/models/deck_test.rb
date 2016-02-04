@@ -6,6 +6,8 @@ class DeckTest < ActiveSupport::TestCase
     deck.title = "Test Deck"
     deck.author = "Zach"
     deck.category = "cats"
+    deck.color_type = "Teal"
+    deck.font_type = "Bold"
     
     assert deck.save
   end
