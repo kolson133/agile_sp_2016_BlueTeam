@@ -1,5 +1,6 @@
 class Deck < ActiveRecord::Base
-  validates_presence_of :title, :author
+  validates_presence_of :title, :author, :category
   validates_uniqueness_of :title
   has_many :cards
+  accepts_nested_attributes_for :cards
 end

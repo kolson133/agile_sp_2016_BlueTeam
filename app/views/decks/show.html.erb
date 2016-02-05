@@ -21,15 +21,14 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
   <h4>List of cards in this deck:</h4>
   <% @deck.cards.each_with_index do |card, i| %>
       <p>
-        ---Card #<%= i + 1 %><br>
+        ---Card #<%= i + 1 %>---<br>
         Question: <%= card.question %><br>
-        Answer: <%= card.answer %>
+        Answer: <%= card.answer %><br>
       </p>
   <% end %>
 <% else %>
     <h4>No cards in this deck.</h4>
 <% end %>
-
-<%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+  <%= link_to 'New Card', new_deck_card_path(@deck) %>
+  <%= link_to 'Back', decks_path %>
 </div>

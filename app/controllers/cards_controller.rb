@@ -1,20 +1,21 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_deck
 
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards = @deck.cards
   end
 
   # GET /cards/1
   # GET /cards/1.json
   def show
+    @card = @deck.cards.find(params[:deck_id])
   end
 
   # GET /cards/new
   def new
-    @card = Card.new
+    @card = @deck.cards.build
   end
 
   # GET /cards/1/edit
@@ -24,12 +25,12 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = Card.new(card_params)
+    @card =  @deck.cards.build(card_params)
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render :show, status: :created, location: @card }
+        format.html { redirect_to deck_path(@deck), notice: 'Card was successfully created.' }
+        format.json { render :show, status: :created, location: deck_card_path(@deck, @card) }
       else
         format.html { render :new }
         format.json { render json: @card.errors, status: :unprocessable_entity }
@@ -63,12 +64,12 @@ class CardsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_card
-      @card = Card.find(params[:id])
+    def set_deck
+      @deck = Deck.find(params[:deck_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:question, :answer, :deck_id)
+      params.require(:card).permit(:question, :answer)
     end
 end
