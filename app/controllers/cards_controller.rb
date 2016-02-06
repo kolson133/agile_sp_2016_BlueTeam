@@ -10,7 +10,7 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
-    @card = @deck.cards.find(params[:deck_id])
+    @card = @deck.cards.find(params[:id])
   end
 
   # GET /cards/new
@@ -20,14 +20,13 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
-    @card = @deck.cards.find(params[:deck_id])
+    @card = @deck.cards.find(params[:id])
   end
 
   # POST /cards
   # POST /cards.json
   def create
     @card =  @deck.cards.build(card_params)
-
     respond_to do |format|
       if @card.save
         format.html { redirect_to deck_path(@deck), notice: 'Card was successfully created.' }
@@ -42,7 +41,7 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
-    @card = @deck.cards.find(params[:deck_id])
+    @card = @deck.cards.find(params[:id])
     respond_to do |format|
       if @card.update_attributes(card_params)
         format.html { redirect_to deck_path(@deck), notice: 'Card was successfully updated.' }
