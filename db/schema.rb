@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160204203810) do
     t.integer  "deck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id"
@@ -31,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160204203810) do
     t.datetime "updated_at", null: false
     t.string   "color_type"
     t.string   "font_type"
-    t.string   "image"
   end
 
 end
