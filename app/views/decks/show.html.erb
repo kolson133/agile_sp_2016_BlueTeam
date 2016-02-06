@@ -24,6 +24,7 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
         ---Card #<%= i + 1 %>---<br>
         Question: <%= card.question %><br>
         Answer: <%= card.answer %><br>
+        <%= link_to 'Edit Card', edit_deck_card_path(@deck, card) %>
       </p>
   <% end %>
 <% else %>
