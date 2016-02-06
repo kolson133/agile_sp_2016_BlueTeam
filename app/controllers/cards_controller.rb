@@ -20,6 +20,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
+    @card = @deck.cards.find(params[:deck_id])
   end
 
   # POST /cards
@@ -41,10 +42,11 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
+    @card = @deck.cards.find(params[:deck_id])
     respond_to do |format|
-      if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
-        format.json { render :show, status: :ok, location: @card }
+      if @card.update_attributes(card_params)
+        format.html { redirect_to deck_path(@deck), notice: 'Card was successfully updated.' }
+        format.json { render :show, status: :ok, location: deck_card_path(@deck, @card) }
       else
         format.html { render :edit }
         format.json { render json: @card.errors, status: :unprocessable_entity }
