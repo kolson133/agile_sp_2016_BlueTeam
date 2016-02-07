@@ -20,7 +20,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
-    @card = @deck.cards.find(params[:deck_id])
+    @card = @deck.cards.find(params[:id])
   end
 
   # POST /cards
@@ -42,7 +42,7 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
-    @card = @deck.cards.find(params[:deck_id])
+    @card = @deck.cards.find(params[:id])
     respond_to do |format|
       if @card.update_attributes(card_params)
         format.html { redirect_to deck_path(@deck), notice: 'Card was successfully updated.' }
@@ -54,17 +54,26 @@ class CardsController < ApplicationController
     end
   end
 
-  # DELETE /cards/1
-  # DELETE /cards/1.json
-  def destroy
-    @card.destroy
+  def destroy 
+    @card = @deck.cards.find(params[:id])
+    @card.is_disabled = true
+    @card.save
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to deck_path(@deck), notice: 'Card was successfully disabled.' }
     end
   end
 
-  private
+  # DELETE /cards/1
+  # DELETE /cards/1.json
+#  def destroy
+#    @card.destroy
+#    respond_to do |format|
+#      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
+#  end
+
+ private
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
       @deck = Deck.find(params[:deck_id])
