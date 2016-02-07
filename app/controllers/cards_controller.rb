@@ -10,7 +10,7 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
-    @card = @deck.cards.find(params[:deck_id])
+    @card = @deck.cards.find(params[:id])
   end
 
   # GET /cards/new
@@ -27,7 +27,6 @@ class CardsController < ApplicationController
   # POST /cards.json
   def create
     @card =  @deck.cards.build(card_params)
-
     respond_to do |format|
       if @card.save
         format.html { redirect_to deck_path(@deck), notice: 'Card was successfully created.' }
