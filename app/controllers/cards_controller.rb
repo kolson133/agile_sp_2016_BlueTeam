@@ -21,7 +21,6 @@ class CardsController < ApplicationController
   # GET /cards/1/edit
   def edit
     @card = @deck.cards.find(params[:deck_id])
-    @card_is_disabled = @card.is_disabled
   end
 
   # POST /cards
@@ -64,12 +63,6 @@ class CardsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
-  def disable_card
-    @card.is_disabled = true
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
