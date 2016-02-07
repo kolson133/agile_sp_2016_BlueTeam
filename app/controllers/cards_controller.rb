@@ -53,17 +53,26 @@ class CardsController < ApplicationController
     end
   end
 
-  # DELETE /cards/1
-  # DELETE /cards/1.json
-  def destroy
-    @card.destroy
+  def destroy 
+    @card = @deck.cards.find(params[:id])
+    @card.is_disabled = true
+    @card.save
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to deck_path(@deck), notice: 'Card was successfully disabled.' }
     end
   end
 
-  private
+  # DELETE /cards/1
+  # DELETE /cards/1.json
+#  def destroy
+#    @card.destroy
+#    respond_to do |format|
+#      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
+#  end
+
+ private
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
       @deck = Deck.find(params[:deck_id])
@@ -71,6 +80,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:question, :answer)
+      params.require(:card).permit(:question, :answer, :is_disabled)
     end
 end
