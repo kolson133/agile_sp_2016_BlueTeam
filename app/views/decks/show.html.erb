@@ -22,8 +22,12 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
   <% @deck.cards.each_with_index do |card, i| %>
       <p>
         ---Card #<%= i + 1 %>---<br>
-        Question: <%= card.question %><br>
-        Answer: <%= card.answer %><br>
+        <% unless card.is_disabled %>
+          Question: <%= card.question %><br>
+          Answer: <%= card.answer %><br>
+        <% else %>
+          Currently disabled<br>
+        <% end %>
         <%= link_to 'Edit Card', edit_deck_card_path(@deck, card) %>
       </p>
   <% end %>
