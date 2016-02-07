@@ -23,6 +23,9 @@
     <%= f.label :deck_id %><br>
     <%= f.text_field :deck_id %>
   </div>
+  <div class="field">
+    <%= f.label :is_disabled, "Disable Card" %>
+    <%= f.check_box :is_disabled %><br>
   <div class="actions">
     <%= f.submit %>
   </div>

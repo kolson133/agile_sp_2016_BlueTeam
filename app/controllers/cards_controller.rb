@@ -21,6 +21,7 @@ class CardsController < ApplicationController
   # GET /cards/1/edit
   def edit
     @card = @deck.cards.find(params[:deck_id])
+    @card_is_disabled = @card.is_disabled
   end
 
   # POST /cards
@@ -64,6 +65,12 @@ class CardsController < ApplicationController
     end
   end
 
+
+  def disable_card
+    @card.is_disabled = true
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
@@ -72,6 +79,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:question, :answer)
+      params.require(:card).permit(:question, :answer, :is_disabled)
     end
 end
