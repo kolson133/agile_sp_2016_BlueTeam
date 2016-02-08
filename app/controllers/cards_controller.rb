@@ -61,7 +61,8 @@ class CardsController < ApplicationController
       format.html { redirect_to deck_path(@deck), notice: 'Card was successfully disabled.' }
     end
   end
-
+  
+  
   # DELETE /cards/1
   # DELETE /cards/1.json
 #  def destroy
@@ -72,6 +73,7 @@ class CardsController < ApplicationController
 #    end
 #  end
 
+
  private
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
@@ -80,6 +82,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:question, :answer, :is_disabled)
+      params.require(:card).permit(:question, :answer, :is_disabled, :image)
     end
 end
