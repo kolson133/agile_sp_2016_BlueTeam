@@ -13,16 +13,20 @@ jQuery ->
 
     cardBack.hide()
 
-    $(".card").click(->
-      if frontHidden
-        cardFront.show()
-        cardBack.hide()
-        frontHidden = false
-        backHidden = true
-      else
-        cardFront.hide()
-        cardBack.show()
-        frontHidden = true
-        backhidden = false
+    $(".card").click((e)->
+
+      target = $(e.target)
+
+      if !target.is('a')
+        if frontHidden
+          cardFront.show()
+          cardBack.hide()
+          frontHidden = false
+          backHidden = true
+        else
+          cardFront.hide()
+          cardBack.show()
+          frontHidden = true
+          backhidden = false
     )
     
