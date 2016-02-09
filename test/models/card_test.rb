@@ -21,4 +21,14 @@ class CardTest < ActiveSupport::TestCase
     assert !card.save
   end
 
+  test "disable card" do
+    card = Card.new(question: "12 + 3", answer: "18")
+    assert card.is_disabled = true
+  end
+
+  test "re-enable card" do
+    card = Card.new(question: "14 + 4", answer: "5", is_disabled: true)
+    assert !card.is_disabled = false
+  end
+
 end
