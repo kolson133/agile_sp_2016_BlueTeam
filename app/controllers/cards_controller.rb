@@ -53,7 +53,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def destroy 
+  def disable_card 
     @card = @deck.cards.find(params[:id])
     @card.is_disabled = true
     @card.save
@@ -62,17 +62,15 @@ class CardsController < ApplicationController
     end
   end
   
-  
   # DELETE /cards/1
   # DELETE /cards/1.json
-#  def destroy
-#    @card.destroy
-#    respond_to do |format|
-#      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
-#      format.json { head :no_content }
-#    end
-#  end
-
+  def destroy
+    @card.destroy
+    respond_to do |format|
+      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
  private
     # Use callbacks to share common setup or constraints between actions.

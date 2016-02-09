@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :cards
   end
 
-  delete 'decks/:deck_id/cards/:id' => 'cards#disable_card', :as => :disable_deck_card
+  post 'decks/:deck_id/cards/:id/disable_card' => 'cards#disable_card', :as => :disable_deck_card
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

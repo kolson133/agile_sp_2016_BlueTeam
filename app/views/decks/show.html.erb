@@ -26,7 +26,7 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
           Question: <%= card.question %><br>
           Answer: <%= card.answer %><br>
           <%= form_tag do %>
-            <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :delete %>
+            <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :post %>
           <% end %>
         <% else %>
           Currently disabled<br>
