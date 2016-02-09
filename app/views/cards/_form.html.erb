@@ -31,6 +31,6 @@
     <%= f.label :is_disabled, "Disable Card" %>
     <%= f.check_box :is_disabled %><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %> <%= link_to 'Cancel', @deck, :id => "deleteLink" %>
   </div>
 <% end %>

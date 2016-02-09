@@ -1,3 +1,42 @@
 // Place all the styles related to the decks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#navLink {
+    color: #0097cc;
+    text-decoration: none;
+  &:hover {
+    color: #007199;
+  }
+}
+
+#deckLink {
+    color: #333;
+  &:hover {
+    color: #999;
+    background-color: #ffffff;
+  }
+}
+
+#editLink {
+    color: white;
+    text-decoration: none;
+    background: #00b300;
+    border-radius: 6px;
+    border: solid 1px #009900;
+    padding: 4px 9px 5px;
+  &:hover {
+    background-color: #009900;
+  }
+}
+
+#deleteLink {
+    color: white;
+    text-decoration: none;
+    background: #990000;
+    border-radius: 6px;
+    border: solid 1px #800000;
+    padding: 4px 9px 5px;
+  &:hover {
+    background-color: #800000;
+  }
+}

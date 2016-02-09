@@ -1,9 +1,9 @@
 <div style="background-color: <%= @deck.color_type %>; font-style: <%= @deck.font_type %>; 
 font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-variant: <%= @deck.font_type %>;">
 <p id="notice"><%= notice %></p>
-<%=link_to 'Decks', decks_url %> |
-<%= link_to 'New Card', new_deck_card_path(@deck) %> |
-<%= link_to 'Edit Deck', edit_deck_path(@deck) %>
+<%= link_to 'Decks', decks_url, :id => "navLink" %> |&nbsp
+<%= link_to 'New Card', new_deck_card_path(@deck), :id => "navLink" %> |&nbsp
+<%= link_to 'Edit Deck', edit_deck_path(@deck), :id => "navLink" %>
 
 <p>
   <strong>Title:</strong>
@@ -27,14 +27,14 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
         <% unless card.is_disabled %>
           <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card) %><br>
           Question: <%= card.question %><br>
-          Answer: <%= card.answer %><br>
-          <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :post %>
+          Answer: <%= card.answer %><br><br>
+          <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :post, :id => "deleteLink" %>
         <% else %>
           ---Card #<%= i + 1 %>---<br>
-          Currently disabled<br>
+          Currently disabled<br><br>
         <% end %>
-        <%= link_to 'Edit Card', edit_deck_card_path(@deck, card) %>
-      </p>
+        <%= link_to 'Edit Card', edit_deck_card_path(@deck, card), :id => "editLink" %>
+      </p><br>
   <% end %>
 <% else %>
     <h4>No cards in this deck.</h4>
