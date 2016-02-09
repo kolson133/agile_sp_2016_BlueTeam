@@ -21,16 +21,14 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
   <h4>List of cards in this deck:</h4>
   <% @deck.cards.each_with_index do |card, i| %>
       <p>
-        ---Card #<%= i + 1 %>---<br>
+        <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card) %><br>
         <% unless card.is_disabled %>
           Question: <%= card.question %><br>
           Answer: <%= card.answer %><br>
-          <%= form_tag do %>
-            <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :post %>
-          <% end %>
         <% else %>
           Currently disabled<br>
         <% end %>
+        <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :post %>
         <%= link_to 'Edit Card', edit_deck_card_path(@deck, card) %>
       </p>
   <% end %>
