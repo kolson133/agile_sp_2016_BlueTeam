@@ -12,7 +12,7 @@
 
 <p>
   <strong>Deck:</strong>
-  <%= @card.deck.id %>
+  <%= @card.deck.title %>
 </p>
 
-<%= link_to 'Back', deck_path(@deck.id) %>
+<%= link_to 'Back to deck', deck_path(@deck.id) %>

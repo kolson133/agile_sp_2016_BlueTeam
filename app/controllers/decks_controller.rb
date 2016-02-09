@@ -29,7 +29,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
+        format.html { redirect_to decks_path, notice: 'Deck was successfully created.' }
         format.json { render :show, status: :created, location: @deck }
       else
         format.html { render :new }

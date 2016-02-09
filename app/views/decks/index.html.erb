@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Decks</h1>
-
+<%= link_to 'Create new deck', new_deck_path %><br>
 <table>
   <thead>
     <tr>
@@ -15,17 +15,14 @@
   <tbody>
     <% @decks.each do |deck| %>
       <tr>
-        <td><%= deck.title %></td>
-        <td><%= deck.author %></td>
-        <td><%= deck.category %></td>
-        <td><%= link_to 'Show', deck %></td>
-        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
-        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to deck.title, deck %>&nbsp</td>
+        <td><%= deck.author %>&nbsp&nbsp&nbsp</td>
+        <td><%= deck.category %>&nbsp&nbsp&nbsp</td>
+        <td><%= link_to 'Edit', edit_deck_path(deck) %> | </td> 
+        <td><%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure that you want to delete this deck?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Deck', new_deck_path %>
