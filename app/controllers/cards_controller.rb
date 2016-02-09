@@ -10,7 +10,12 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
+#    puts Card.where(:deck_id => params[:deck_id]).count
     @card = @deck.cards.find(params[:id])
+  end
+
+  def show_random
+    @card = @deck.cards.find(params[get_random_card])
   end
 
   # GET /cards/new
@@ -78,8 +83,13 @@ class CardsController < ApplicationController
       @deck = Deck.find(params[:deck_id])
     end
 
+    def get_random_card
+      @card.where(:deck_id => params[:deck_id]).count
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
       params.require(:card).permit(:question, :answer, :is_disabled, :image)
     end
+
 end
