@@ -6,11 +6,11 @@
     <%= link_to "#{@card.deck.title}", deck_path(@deck.id), :id => "navLink" %>
   </p>
 
-  <p class="card-front">
+  <p class="card-front card-content">
     <%= @card.question %>
   </p>
 
-  <p class="card-back">
+  <p class="card-back card-content">
     <%= @card.answer %>
   </p>
 

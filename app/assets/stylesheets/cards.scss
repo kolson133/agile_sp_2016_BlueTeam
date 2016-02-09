@@ -3,12 +3,17 @@ div.card {
   cursor: pointer;
   height: 200px;
   margin: 0 auto;
+  padding: 2px;
   text-align: center;
   width: 300px;
   vertical-align: middle;
 
   &>p {
     font-size: 20px;
+  }
+
+  &>.card-content {
+    margin-top: 50px;
   }
 }
 
