@@ -3,20 +3,16 @@
 <div class="card">
 
   <p class="deck-title">
-    <strong>Deck:</strong>
-    <%= @card.deck.title %>
+    <%= link_to "#{@card.deck.title}", deck_path(@deck.id), :id => "navLink" %>
   </p>
 
   <p class="card-front">
-    <strong>Question:</strong>
     <%= @card.question %>
   </p>
 
   <p class="card-back">
-    <strong>Answer:</strong>
     <%= @card.answer %>
   </p>
 
 </div>
 
-<%= link_to 'Back to deck', deck_path(@deck.id), :id => "navLink" %>

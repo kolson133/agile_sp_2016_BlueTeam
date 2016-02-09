@@ -1,10 +1,15 @@
 div.card {
   border: 1px solid black;
+  cursor: pointer;
   height: 200px;
   margin: 0 auto;
   text-align: center;
   width: 300px;
   vertical-align: middle;
 
+  &>p {
+    font-size: 20px;
+  }
 }
+
 
