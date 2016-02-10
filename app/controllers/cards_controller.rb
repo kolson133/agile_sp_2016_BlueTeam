@@ -10,12 +10,15 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
-#    puts Card.where(:deck_id => params[:deck_id]).count
     @card = @deck.cards.find(params[:id])
   end
 
-  def show_random
-    @card = @deck.cards.find(params[get_random_card])
+  def show_random_card
+    cards = @deck.cards
+    cards = Card.where(deck_id: @deck)
+    cards = cards.shuffle
+    @card = cards.first
+    redirect_to deck_card_path(@deck, @card)
   end
 
   # GET /cards/new

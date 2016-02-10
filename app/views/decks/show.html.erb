@@ -20,6 +20,8 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
   <%= @deck.category %>
 </p>
 
+<%= link_to 'Play', show_random_card_path(@deck, @cards), :method => :post  %>
+
 <% if @deck.cards.present? %>
   <h4>List of cards in this deck:</h4>
   <% @deck.cards.each_with_index do |card, i| %>

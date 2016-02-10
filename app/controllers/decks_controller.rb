@@ -10,7 +10,7 @@ class DecksController < ApplicationController
   # GET /decks/1
   # GET /decks/1.json
   def show
-    @decks = Deck.find(params[:id])
+    @deck = Deck.find(params[:id])
   end
 
   # GET /decks/new
