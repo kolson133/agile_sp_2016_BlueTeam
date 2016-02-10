@@ -16,6 +16,7 @@ class CardsController < ApplicationController
   def show_random_card
     cards = @deck.cards
     cards = Card.where(deck_id: @deck)
+    cards = cards.where(is_disabled: false)
     cards = cards.shuffle
     @card = cards.first
     redirect_to deck_card_path(@deck, @card)
