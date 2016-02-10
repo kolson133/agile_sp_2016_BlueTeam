@@ -11,6 +11,14 @@ class DecksController < ApplicationController
   # GET /decks/1.json
   def show
     @deck = Deck.find(params[:id])
+    cards = @deck.cards
+    @all_disabled = true
+    cards.each do |c|
+      if c.is_disabled == false
+        @all_disabled = false
+        break
+      end
+    end
   end
 
   # GET /decks/new
