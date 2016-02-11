@@ -26,8 +26,8 @@ a {
   }
 
   &:hover {
-    color: #999;
-    background-color: #ffffff;
+    color: #fff;
+    background-color: #000;
   }
 }
 
@@ -43,7 +43,8 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  color: white;
+  background-color: #c00;
   display: table;
 }
 
@@ -53,7 +54,8 @@ div {
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  color: #D63301;
+  background-color: #FFCCBA;
 
   h2 {
     text-align: left;
@@ -71,3 +73,4 @@ div {
     list-style: square;
   }
 }
+
