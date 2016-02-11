@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206012122) do
+ActiveRecord::Schema.define(version: 20160211204529) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "question"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160206012122) do
     t.integer  "deck_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "image"
     t.boolean  "is_disabled", default: false
   end
 
@@ -29,10 +28,12 @@ ActiveRecord::Schema.define(version: 20160206012122) do
     t.string   "title"
     t.string   "author"
     t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "color_type"
+    t.string   "image"
     t.string   "font_type"
+    t.string   "description"
   end
 
 end
