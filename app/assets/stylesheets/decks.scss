@@ -17,26 +17,38 @@
   }
 }
 
-#editLink, #play-button {
-    color: white;
-    text-decoration: none;
+#editLink, #play-button, #update-button {
     background: #00b300;
-    border-radius: 6px;
-    border: solid 1px #009900;
-    padding: 4px 9px 5px;
+    border-radius: 28px;
+    font-family: Arial;
+    color: white;
+    border: none;
+    padding: 7px 15px 7px 15px;
+    box-shadow: 2px 10px 10px -5px #276873;
+    text-decoration: none;
   &:hover {
     background-color: #009900;
   }
 }
 
 #deleteLink {
-    color: white;
-    text-decoration: none;
     background: #990000;
-    border-radius: 6px;
-    border: solid 1px #800000;
-    padding: 4px 9px 5px;
+    border-radius: 28px;
+    font-family: Arial;
+    color: white;
+    padding: 7px 15px 7px 15px;
+    box-shadow: 2px 10px 10px -5px #276873;
+    text-decoration: none;
   &:hover {
     background-color: #800000;
   }
+}
+
+table {
+  margin-top: 2em;
+}
+
+table td {
+  padding-bottom: 15px;
+  padding-left: 10px;
 }
