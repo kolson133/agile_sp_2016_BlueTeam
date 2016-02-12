@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 20160212155024) do
     t.string   "title"
     t.string   "author"
     t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "color_type"
     t.string   "font_type"
+    t.string   "description"
   end
 
 end

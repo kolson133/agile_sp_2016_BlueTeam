@@ -4,4 +4,5 @@ one:
   title: "Test" 
   author: "Zach" 
   category: "Stuff" 
+  description: "Test description for this test deck"
 

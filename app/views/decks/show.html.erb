@@ -15,10 +15,19 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
   <%= @deck.author %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @deck.category %>
-</p>
+<% unless @deck.category.empty? %>
+  <p>
+    <strong>Category:</strong>
+    <%= @deck.category %>
+  </p>
+<% end %>
+
+<% unless @deck.description.empty? %>
+  <p>
+    <strong>Description:</strong>
+    <%= @deck.description %>
+  <p>
+<% end %>
 
 <% if @all_disabled == false %>
   <%= link_to 'Play', show_random_card_path(@deck, @cards), :method => :post, :id => "play-button" %>
