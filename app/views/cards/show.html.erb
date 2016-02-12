@@ -13,6 +13,9 @@
   <p class="card-back card-content">
     <%= @card.answer %>
   </p>
-
+  <%= image_tag @card.image.url %>
+  <%= image_tag @card.image.url(:medium) %>
+  <%= image_tag @card.image.url(:thumb) %>
+  @card.save
 </div>
 
