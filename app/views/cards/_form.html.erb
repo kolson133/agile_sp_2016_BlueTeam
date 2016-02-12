@@ -1,5 +1,5 @@
 <%= form_for([@deck, @card]) do |f| %>
-
+  <%= f.file_field :image %>
   <div class="field">
     <%= f.label :question %><br>
     <%= f.text_field :question %>

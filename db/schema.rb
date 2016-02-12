@@ -19,12 +19,15 @@ ActiveRecord::Schema.define(version: 20160212155024) do
     t.integer  "deck_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.string   "image"
     t.boolean  "is_disabled",        default: false
+    t.string   "cards_file_name"
+    t.string   "cards_content_type"
+    t.integer  "cards_file_size"
+    t.datetime "cards_updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "image_path"
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id"
@@ -36,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160212155024) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "color_type"
+    t.string   "image"
     t.string   "font_type"
     t.string   "description"
   end
