@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-first_grade_math = Deck.new(title: "First Grade Math", author: "Frodo Baggins", category: "Math")
+first_grade_math = Deck.new(title: "First Grade Math", author: "Frodo Baggins", category: "Math", description: "Cards for Gandalf's quiz")
 first_grade_math.save
 
 flash_card = first_grade_math.cards.build(question: "1 + 1", answer: "2")
