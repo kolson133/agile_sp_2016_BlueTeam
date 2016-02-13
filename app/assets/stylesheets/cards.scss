@@ -1,3 +1,6 @@
+$navColor:  #0097cc;
+$hoverColor: #007199;
+
 div.card {
   border: 1px solid black;
   cursor: pointer;
@@ -17,4 +20,28 @@ div.card {
   }
 }
 
+.arrow-left {
+  border-bottom: 30px solid transparent;
+  border-top: 30px solid transparent;
+  border-right: 30px solid $navColor;
+  height: 0;
+  width: 0; 
+
+  &:hover {
+    border-right-color: $hoverColor;
+  }
+}
+
+.arrow-right {
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid $navColor;
+  border-top: 30px solid transparent;
+  height: 0;
+  width: 0;
+  
+  &:hover {
+    border-left-color: $hoverColor;
+  }
+}
+  
 

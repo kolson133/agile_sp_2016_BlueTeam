@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% unless @deck.cards.first == @card %>
+  <%= link_to "", previous_card_path, :method => :post, :class => "arrow-left" %>
+<% end %>
+
+<% unless @deck.cards.last == @card %>
+  <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
+<% end %>
+
 <div class="card">
 
   <p class="deck-title">
@@ -15,6 +23,5 @@
   </p>
   
   <%= image_tag @card.image.url(:medium) %>
-  @card.save
 </div>
 

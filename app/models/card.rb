@@ -5,4 +5,13 @@ class Card < ActiveRecord::Base
   attr_accessor :image
   has_attached_file :image, :styles => { :medium => "300x300>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+  def next
+    deck.cards.where("id > ?", id).first
+  end
+
+  def previous
+    deck.cards.where("id < ?", id).last
+  end
+
 end

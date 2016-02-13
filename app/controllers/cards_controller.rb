@@ -22,6 +22,18 @@ class CardsController < ApplicationController
     redirect_to deck_card_path(@deck, @card)
   end
 
+  def next_card
+    @card = @deck.cards.find(params[:id])
+    @card = @card.next
+    redirect_to deck_card_path(@deck, @card)
+  end 
+
+  def previous_card
+    @card = @deck.cards.find(params[:id])
+    @card = @card.previous
+    redirect_to deck_card_path(@deck, @card)
+  end
+
   # GET /cards/new
   def new
     @card = @deck.cards.build

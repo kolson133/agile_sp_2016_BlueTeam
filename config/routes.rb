@@ -6,8 +6,12 @@ Rails.application.routes.draw do
     resources :cards
   end
 
-  post 'decks/:deck_id/cards/:id/disable_card' => 'cards#disable_card', :as => :disable_deck_card
   post 'decks/:deck_id/show_random_card' => 'cards#show_random_card', :as => :show_random_card
+
+  post 'decks/:deck_id/cards/:id/disable_card' => 'cards#disable_card', :as => :disable_deck_card
+
+  post 'decks/:deck_id/cards/:id/next_card' => 'cards#next_card', :as => :next_card
+  post 'decks/:deck_id/cards/:id/previous_card' => 'cards#previous_card', :as => :previous_card
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
