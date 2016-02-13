@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<% unless @deck.cards.first == @card %>
-  <%= link_to "", previous_card_path, :method => :post, :class => "arrow-left" %>
-<% end %>
-
-<% unless @deck.cards.last == @card %>
-  <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
-<% end %>
 
 <div class="card">
+
+  <% unless @deck.cards.first == @card %>
+    <%= link_to "", previous_card_path, :method => :post, :class => "arrow-left" %>
+  <% end %>
+
+  <% unless @deck.cards.last == @card %>
+    <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
+  <% end %>
 
   <p class="deck-title">
     <%= link_to "#{@card.deck.title}", deck_path(@deck.id), :id => "navLink" %>

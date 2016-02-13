@@ -25,9 +25,13 @@ div.card {
   border-top: 30px solid transparent;
   border-right: 30px solid $navColor;
   height: 0;
+  left: 480px;
+  position: absolute;
+  top: 80px;
   width: 0; 
 
   &:hover {
+    background-color: white;
     border-right-color: $hoverColor;
   }
 }
@@ -37,9 +41,13 @@ div.card {
   border-left: 30px solid $navColor;
   border-top: 30px solid transparent;
   height: 0;
+  right: 480px;
+  position: absolute;
+  top: 80px;
   width: 0;
   
   &:hover {
+    background-color: white;
     border-left-color: $hoverColor;
   }
 }
