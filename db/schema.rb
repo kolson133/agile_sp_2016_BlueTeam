@@ -11,15 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211204529) do
+ActiveRecord::Schema.define(version: 20160212155024) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "question"
     t.string   "answer"
     t.integer  "deck_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "is_disabled", default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "image"
+    t.boolean  "is_disabled",        default: false
+    t.string   "cards_file_name"
+    t.string   "cards_content_type"
+    t.integer  "cards_file_size"
+    t.datetime "cards_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.string   "image_path"
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id"
@@ -31,7 +40,6 @@ ActiveRecord::Schema.define(version: 20160211204529) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "color_type"
-    t.string   "image"
     t.string   "font_type"
     t.string   "description"
   end

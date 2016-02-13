@@ -1,12 +1,10 @@
 <%= form_for([@deck, @card]) do |f| %>
-
+  <div class="image">
+    <%= f.file_field :image %>
+  </div>
   <div class="field">
     <%= f.label :question %><br>
     <%= f.text_field :question %>
-  </div>
-  <div class="image">
-    <%=f.label :image %><br>
-    <%= f.file_field :image %><br>
   </div>
   <div class="field">
     <%= f.label :answer %><br>
