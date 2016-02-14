@@ -34,7 +34,8 @@ class Card < ActiveRecord::Base
 
   private
   def download_remote_equation
-    self.image = open("http://latex.codecogs.com/png.latex?\\dpi{100}\\fn_cm \\huge " + raw_latex)
+    url = URI.escape("http://latex.codecogs.com/png.latex?\\dpi{100}\\fn_cm \\huge " + raw_latex).encode
+    self.image = URI.parse(url).open
   end
 
 end
