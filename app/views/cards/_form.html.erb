@@ -1,13 +1,19 @@
+<%= javascript_include_tag "math_equations.js" %>
 <%= form_for([@deck, @card]) do |f| %>
-  <div class="image">
+  <a href="#" id="eqed">Load advanced equation editor...</a>
+  <a href="#" hidden id="eqed_clicked">Cancel advanced equation editor...</a>
+  <div hidden id="editor"></div>
+  <textarea hidden id="entry" name="card[raw_latex]"></textarea>
+  <p id="advanced_eq_question" hidden>Advanced Equation Question:<br><img id="equation1"/></p>
+  <div class="image" id="image_field">
     Upload a photo: <%= f.file_field :image %><br>
     or provide a URL: <%= f.text_field :image_remote_url %><br>
   </div>
-  <div class="field">
+  <div class="field" id="question_field">
     <%= f.label :question %><br>
     <%= f.text_field :question %>
   </div>
-  <div class="field">
+  <div class="field" id="answer_field">
     <%= f.label :answer %><br>
     <%= f.text_field :answer %>
   </div>
