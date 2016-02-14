@@ -3,11 +3,11 @@
 
 <div class="card">
 
-  <% unless @deck.cards.first == @card %>
+  <% unless @deck.cards.first == @card or (@deck.cards.first.is_disabled == true and @card.previous == @deck.cards.first) %>
     <%= link_to "", previous_card_path, :method => :post, :class => "arrow-left" %>
   <% end %>
 
-  <% unless @deck.cards.last == @card %>
+  <% unless @deck.cards.last == @card or (@deck.cards.last.is_disabled == true and @card.next == @deck.cards.last)%>
     <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
   <% end %>
 
@@ -16,13 +16,16 @@
   </p>
 
   <p class="card-front card-content">
-    <%= @card.question %>
+    <% if @card.image.exists? %>
+      <%= image_tag @card.image.url(:medium) %>
+    <% else %> 
+      <%= @card.question %>
+    <% end %>
   </p>
 
   <p class="card-back card-content">
     <%= @card.answer %>
   </p>
   
-  <%= image_tag @card.image.url(:medium) %>
 </div>
 

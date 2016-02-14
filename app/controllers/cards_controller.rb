@@ -25,19 +25,27 @@ class CardsController < ApplicationController
   def next_card
     @card = @deck.cards.find(params[:id])
     @card = @card.next
-    while @card.is_disabled == true
-      @card = @card.next
+    begin
+      while @card.is_disabled == true
+        @card = @card.next
+      end
+      redirect_to deck_card_path(@deck, @card)
+    rescue 
+      redirect_to deck_card_path(@deck, @deck.cards.find(params[:id]))
     end
-    redirect_to deck_card_path(@deck, @card)
   end 
 
   def previous_card
     @card = @deck.cards.find(params[:id])
     @card = @card.previous
-    while @card.is_disabled == true
-      @card = @card.previous
+    begin
+      while @card.is_disabled == true
+        @card = @card.previous
+      end
+      redirect_to deck_card_path(@deck, @card)
+    rescue
+      redirect_to deck_card_path(@deck, @deck.cards.find(params[:id]))
     end
-    redirect_to deck_card_path(@deck, @card)
   end
 
   # GET /cards/new
