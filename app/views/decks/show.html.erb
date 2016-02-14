@@ -41,12 +41,13 @@ font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-va
           <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card) %><br>
           Question: <%= card.question %><br>
           Answer: <%= card.answer %><br><br>
-          <%= link_to 'Disable Card', disable_deck_card_path(@deck, card), :method => :post, :id => "deleteLink" %>
+          <%= link_to 'Disable', disable_deck_card_path(@deck, card), :method => :post, :id => "deleteLink" %>
         <% else %>
           ---Card #<%= i + 1 %>---<br>
           Currently disabled<br><br>
         <% end %>
-        <%= link_to 'Edit Card', edit_deck_card_path(@deck, card), :id => "editLink" %>
+        <%= link_to 'Delete', deck_card_path(@deck, card), method: :delete, :id => "deleteLink", data: { confirm: 'Are you sure that you want to delete this card?' } %></td>
+        <%= link_to 'Edit', edit_deck_card_path(@deck, card), :id => "editLink" %>
       </p><br>
   <% end %>
 <% else %>
