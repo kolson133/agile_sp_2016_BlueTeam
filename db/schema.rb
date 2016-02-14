@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212155024) do
+ActiveRecord::Schema.define(version: 20160213235335) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "question"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160212155024) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.string   "image_path"
+    t.string   "image_remote_url"
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id"

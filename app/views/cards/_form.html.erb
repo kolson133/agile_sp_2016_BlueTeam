@@ -1,6 +1,7 @@
 <%= form_for([@deck, @card]) do |f| %>
   <div class="image">
-    <%= f.file_field :image %>
+    Upload a photo: <%= f.file_field :image %><br>
+    or provide a URL: <%= f.text_field :image_remote_url %><br>
   </div>
   <div class="field">
     <%= f.label :question %><br>
@@ -13,6 +14,7 @@
   <div class="field">
     <%= f.label :is_disabled, "Disable Card" %>
     <%= f.check_box :is_disabled %><br>
+  </div>
   <div class="actions">
     <%= f.submit :id =>"update-button"%> <%= link_to 'Cancel', @deck, :id => "deleteLink" %>
   </div>
