@@ -28,6 +28,12 @@
   <div class="controls">
     <%= f.select(:font_type, options_for_select([['None', ''], ['Bold', 'bold'], ['Italic', 'italic'], ['Small Caps', 'small-caps'], ['Oblique', 'oblique']])) %>
   </div>
+    <div class="control">
+    <%= f.label "Change Foreground", class: 'control-label' %>
+  </div>
+  <div class="controls">
+    <%= f.select(:foreground_color, options_for_select([['None', ''], ['Navy', 'navy'], ['Maroon', 'maroon'], ['White', 'white'], ['Orange', '#ff8c1a']])) %>
+  </div>
   <br>
   <div class="actions">
     <%= f.submit :id =>"update-button"%> <%= link_to 'Cancel', @deck, :id => "deleteLink" %>

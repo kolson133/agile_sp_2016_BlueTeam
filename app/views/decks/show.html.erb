@@ -1,5 +1,4 @@
-<div style="background-color: <%= @deck.color_type %>; font-style: <%= @deck.font_type %>; 
-font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-variant: <%= @deck.font_type %>;">
+<div style="background-color: <%= @deck.color_type %>; font-style: <%= @deck.font_type %>; color: <%= @deck.foreground_color %>; font-weight: <%= @deck.font_type %>; font-style: <%= @deck.font_type %>; font-variant: <%= @deck.font_type %>;">
 <p id="notice"><%= notice %></p>
 <%= link_to 'Decks', decks_url, :id => "navLink" %> |&nbsp
 <%= link_to 'New Card', new_deck_card_path(@deck), :id => "navLink" %> |&nbsp
