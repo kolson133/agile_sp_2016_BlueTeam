@@ -1,15 +1,26 @@
 $navColor:  #0097cc;
 $hoverColor: #007199;
+$cardWidth: 300px;
+$cardHeight: 200px;
 
 div.card {
   border: 1px solid black;
   cursor: pointer;
-  height: 200px;
+  height: $cardHeight;
   margin: 0 auto;
   padding: 2px;
   text-align: center;
-  width: 300px;
+  width: $cardWidth;
   vertical-align: middle;
+
+  .deck-title {
+    position: relative;
+    z-index: 100;
+  }
+
+  #navLink {
+    background-color: white;
+  }
 
   &>p {
     font-size: 20px;
@@ -18,6 +29,13 @@ div.card {
   &>.card-content {
     margin-top: 50px;
   }
+
+  #card-image {
+    height: $cardHeight;
+    margin-top: -87px;
+    width: $cardWidth;
+  }
+
 }
 
 .arrow-left {
