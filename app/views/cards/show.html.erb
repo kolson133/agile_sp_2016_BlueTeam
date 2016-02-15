@@ -15,9 +15,10 @@
     <%= link_to "#{@card.deck.title}", deck_path(@deck.id), :id => "navLink" %>
   </p>
 
+   
   <p class="card-front card-content">
     <% if @card.image.exists? %>
-      <%= image_tag @card.image.url(:medium) %>
+      <%= image_tag @card.image.url(:medium), :id => "card-image" %>
     <% else %> 
       <%= @card.question %>
     <% end %>
