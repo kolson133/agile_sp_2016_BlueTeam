@@ -15,8 +15,11 @@ div.card {
 
   .deck-title {
     position: relative;
-    text-shadow: 0 0 1px white;
     z-index: 100;
+  }
+
+  #navLink {
+    background-color: white;
   }
 
   &>p {
@@ -28,7 +31,9 @@ div.card {
   }
 
   #card-image {
+    height: $cardHeight;
     margin-top: -87px;
+    width: $cardWidth;
   }
 
 }
