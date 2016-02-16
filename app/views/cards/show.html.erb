@@ -8,23 +8,24 @@
 
 <div class="card">
 
-  <% unless @deck.cards.first == @card or (@deck.cards.first.is_disabled == true and @card.previous == @deck.cards.first) %>
-    <%= link_to "", previous_card_path, :method => :post, :class => "arrow-left" %>
-  <% end %>
+  <span class="arrow-left"></span>
+  <span class="arrow-right"></span>
 
-  <% unless @deck.cards.last == @card or (@deck.cards.last.is_disabled == true and @card.next == @deck.cards.last)%>
-    <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
-  <% end %>
+  <% @cards.each do |c| %>
+    <div class="card-content">
 
-  <% if @card.image.exists? %>
-    <%= image_tag @card.image.url(:medium), :class => "card-front" %>
-  <% else %> 
-    <p class="card-front"><%= @card.question %></p>
-  <% end %>
+      <% if c.image.exists? %>
+        <%= image_tag c.image.url(:medium), :class => "card-front" %>
+      <% else %> 
+        <p class="card-front"><%= c.question %></p>
+      <% end %>
 
-  <p class="card-back">
-    <%= @card.answer %>
-  </p>
+      <p class="card-back">
+        <%= c.answer %>
+      </p>
+
+    </div>
+  <% end %>
   
 </div>
 

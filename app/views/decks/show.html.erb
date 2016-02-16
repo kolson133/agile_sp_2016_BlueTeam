@@ -29,7 +29,7 @@
 <% end %>
 
 <% if @all_disabled == false %>
-  <%= link_to 'Play', show_random_card_path(@deck, @cards), :method => :post, :id => "play-button" %>
+  <%= link_to 'Play', deck_card_path(@deck, 1), :id => "play-button" %>
 <% end %>
 
 <% if @deck.cards.present? %>
@@ -37,7 +37,8 @@
   <% @deck.cards.each_with_index do |card, i| %>
       <p>
         <% unless card.is_disabled %>
-          <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card), :id=> "deckCardLinks" %><br>
+          <% # <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card), :id=> "deckCardLinks" %>
+          --Card #<%= i + 1 %>---<br>
           Question: <%= card.question %><br>
           Answer: <%= card.answer %><br><br>
           <%= link_to 'Disable', disable_deck_card_path(@deck, card), :method => :post, :id => "deleteLink" %>

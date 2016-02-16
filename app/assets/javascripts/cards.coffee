@@ -4,9 +4,8 @@
 jQuery ->
 
   $ ->
-
-    cardFront = $(".card > .card-front")
-    cardBack = $(".card > .card-back")
+    cardFront = $(".card .card-front")
+    cardBack = $(".card .card-back")
 
     frontHidden = false
     backHidden = true
@@ -17,7 +16,7 @@ jQuery ->
 
       target = $(e.target)
 
-      if !target.is('a')
+      if !target.is('span')
         if frontHidden
           cardFront.show()
           cardBack.hide()
@@ -29,4 +28,65 @@ jQuery ->
           frontHidden = true
           backhidden = false
     )
+
+
+    
+
+    cards = $(".card-content")
+    leftArrow = $(".arrow-left")
+    rightArrow = $(".arrow-right")
+
+    current = 0
+
+    leftArrow.hide()
+    cards.eq(0).show()
+
+    rightArrow.click( ->
+      
+      cards.eq(current).hide()
+      cards.eq(current + 1).show()
+
+      current++
+
+      if current > 0
+        leftArrow.show()
+
+      if current == cards.length - 1
+        rightArrow.hide()
+
+
+      cardFront.show()
+      cardBack.hide()
+      frontHidden = false
+      backHidden = true
+    )
+
+    leftArrow.click( ->
+
+      rightArrow.show()
+    
+      cards.eq(current).hide()
+      cards.eq(current - 1).show()
+
+      current--
+
+      if current == 0
+        leftArrow.hide()
+    
+      cardFront.show()
+      cardBack.hide()
+      frontHidden = false
+      backHidden = true
+
+    )
+
+
+
+
+
+
+
+
+
+    
     

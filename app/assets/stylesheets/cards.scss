@@ -17,6 +17,10 @@ div.card {
     background-color: white;
   }
 
+  .card-content {
+    display: none; 
+  }
+
   p {
     font-size: 20px;
     margin-top: 85px;
@@ -42,8 +46,9 @@ div.card {
   border-bottom: 30px solid transparent;
   border-top: 30px solid transparent;
   border-right: 30px solid $navColor;
+  display: block;
   height: 0;
-  margin-left: -200px;
+  margin-left: -50px;
   margin-top: 65px;
   position: absolute;
   width: 0; 
@@ -58,8 +63,9 @@ div.card {
   border-bottom: 30px solid transparent;
   border-left: 30px solid $navColor;
   border-top: 30px solid transparent;
+  display: block;
   height: 0;
-  margin-left: 170px;
+  margin-left: 320px;
   margin-top: 65px;
   position: absolute;
   width: 0;
