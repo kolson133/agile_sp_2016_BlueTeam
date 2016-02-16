@@ -8,32 +8,32 @@ div.card {
   cursor: pointer;
   height: $cardHeight;
   margin: 0 auto;
-  padding: 2px;
+  position: relative;
   text-align: center;
   width: $cardWidth;
-  vertical-align: middle;
-
-  .deck-title {
-    position: relative;
-    z-index: 100;
-  }
+  word-break: break-all;
 
   #navLink {
     background-color: white;
   }
 
-  &>p {
+  p {
     font-size: 20px;
+    margin-top: 85px;
+    text-align: center;
   }
 
-  &>.card-content {
-    margin-top: 50px;
-  }
-
-  #card-image {
-    height: $cardHeight;
-    margin-top: -87px;
-    width: $cardWidth;
+  img {
+    bottom: 0;
+    height: auto;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
   }
 
 }

@@ -16,15 +16,13 @@
     <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
   <% end %>
 
-  <p class="card-front card-content">
-    <% if @card.image.exists? %>
-      <%= image_tag @card.image.url(:medium), :id => "card-image" %>
-    <% else %> 
-      <%= @card.question %>
-    <% end %>
-  </p>
+  <% if @card.image.exists? %>
+    <%= image_tag @card.image.url(:medium), :class => "card-front" %>
+  <% else %> 
+    <p class="card-front"><%= @card.question %></p>
+  <% end %>
 
-  <p class="card-back card-content">
+  <p class="card-back">
     <%= @card.answer %>
   </p>
   
