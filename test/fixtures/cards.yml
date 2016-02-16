@@ -6,3 +6,14 @@ one:
   deck_id: 1
   is_disabled: false
 
+two: 
+  question: "Meow"
+  answer: "Meow Meow"
+  deck_id: 1
+  is_disabled: true
+
+three:
+  question: "Wut"
+  answer: "ya"
+  deck_id: 1
+  is_disabled: false
