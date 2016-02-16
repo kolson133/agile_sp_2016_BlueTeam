@@ -10,7 +10,7 @@
   }
 }
 
-#deckLink {
+#deckCardLinks {
     color: #333;
   &:hover {
     color: #999;
@@ -18,7 +18,7 @@
   }
 }
 
-#editLink, #play-button, #update-button {
+#editCreateLink, #play-button, #update-button {
     background: #00b300;
     border-radius: 28px;
     font-family: Arial;

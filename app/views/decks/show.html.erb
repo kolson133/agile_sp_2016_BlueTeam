@@ -37,7 +37,7 @@
   <% @deck.cards.each_with_index do |card, i| %>
       <p>
         <% unless card.is_disabled %>
-          <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card) %><br>
+          <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card), :id=> "deckCardLinks" %><br>
           Question: <%= card.question %><br>
           Answer: <%= card.answer %><br><br>
           <%= link_to 'Disable', disable_deck_card_path(@deck, card), :method => :post, :id => "deleteLink" %>
@@ -46,7 +46,7 @@
           Currently disabled<br><br>
         <% end %>
         <%= link_to 'Delete', deck_card_path(@deck, card), method: :delete, :id => "deleteLink", data: { confirm: 'Are you sure that you want to delete this card?' } %></td>
-        <%= link_to 'Edit', edit_deck_card_path(@deck, card), :id => "editLink" %>
+        <%= link_to 'Edit', edit_deck_card_path(@deck, card), :id => "editCreateLink" %>
       </p><br>
   <% end %>
 <% else %>
