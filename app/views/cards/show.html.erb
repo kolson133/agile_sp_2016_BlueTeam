@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<center>
+  <%= link_to "Back to Deck", deck_path(@deck.id), :id => "navLink" %> |&nbsp
+  <%= link_to 'All Decks', decks_url, :id => "navLink" %> |&nbsp
+  <%= link_to 'New Card', new_deck_card_path(@deck), :id => "navLink" %> |&nbsp
+  <%= link_to 'Edit Deck', edit_deck_path(@deck), :id => "navLink" %>
+</center><br>
 
 <div class="card">
 
@@ -11,11 +16,6 @@
     <%= link_to "", next_card_path, :method => :post, :class => "arrow-right" %>
   <% end %>
 
-  <p class="deck-title">
-    <%= link_to "#{@card.deck.title}", deck_path(@deck.id), :id => "navLink" %>
-  </p>
-
-   
   <p class="card-front card-content">
     <% if @card.image.exists? %>
       <%= image_tag @card.image.url(:medium), :id => "card-image" %>
