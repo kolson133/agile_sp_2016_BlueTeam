@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160215025505) do
     t.string   "color_type"
     t.string   "font_type"
     t.string   "description"
-    t.string   "foreground"
     t.string   "foreground_color"
   end
 
