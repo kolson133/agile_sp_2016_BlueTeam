@@ -45,5 +45,9 @@ group :development do
   gem 'spring'
   
   gem 'paperclip'
+
+  gem 'devise'
+  gem 'omniauth'
+  gem 'omniauth-facebook'
 end
 
