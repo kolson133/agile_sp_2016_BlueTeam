@@ -18,3 +18,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+#ignore files with secret keys

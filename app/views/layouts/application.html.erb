@@ -10,7 +10,13 @@
   <%= javascript_include_tag "http://latex.codecogs.com/eqneditor/js/eq_editor-lite-18.js" %>
 </head>
 <body>
+<div id="login">
+  <% if user_signed_in? %>
+    <p>You are logged in as <%= current_user.email %> through <%= current_user.provider %>.</p>
+  <% else %>
+    <%=link_to 'Sign In', new_user_session_url %>
+  <% end %>
+</div>
 <%= yield %>
-
 </body>
 </html>
