@@ -6,6 +6,7 @@ class Card < ActiveRecord::Base
   before_validation :download_remote_image, :if => :image_url_provided?
   before_validation :download_remote_equation, :if => :raw_latex_provided?
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_size :image, :less_than => 720.kilobytes
   validates_presence_of :question, :unless => :image?
   validates_presence_of :answer
 
