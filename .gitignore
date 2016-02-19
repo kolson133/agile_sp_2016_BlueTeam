@@ -20,3 +20,4 @@
 /tmp
 
 #ignore files with secret keys
+/config/initializers/devise.rb
