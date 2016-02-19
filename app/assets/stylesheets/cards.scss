@@ -37,6 +37,7 @@ div.card {
     position: absolute;
     right: 0;
     top: 0;
+    user-select: none;
     width: auto;
   }
 
@@ -75,5 +76,3 @@ div.card {
     border-left-color: $hoverColor;
   }
 }
-  
-

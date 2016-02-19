@@ -1,92 +1,85 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-jQuery ->
+$ ->
+  card = $(".card")
+  cardFront = $(".card .card-front")
+  cardBack = $(".card .card-back")
 
-  $ ->
-    cardFront = $(".card .card-front")
-    cardBack = $(".card .card-back")
+  downX = 0
+  upX = 0
 
-    frontHidden = false
-    backHidden = true
+  frontHidden = false
+  backHidden = true
 
-    cardBack.hide()
+  cardBack.hide()
 
-    $(".card").click((e)->
+  card.mousedown((e)->
+    downX = e.clientX
+  )
 
+  card.mouseup((e)->
+    upX = e.clientX
+  )
+  
+  card.click((e)->
+
+    if downX > upX 
+      nextCard()
+    else if downX < upX
+      previousCard()
+    else
       target = $(e.target)
 
       if !target.is('span')
         if frontHidden
-          cardFront.show()
-          cardBack.hide()
-          frontHidden = false
-          backHidden = true
+          showCardFront()
         else
-          cardFront.hide()
-          cardBack.show()
-          frontHidden = true
-          backhidden = false
-    )
+          showCardBack()
+  )
+  
+  cards = $(".card-content")
+  leftArrow = $(".arrow-left")
+  rightArrow = $(".arrow-right")
 
+  current = 0
 
-    
+  leftArrow.hide()
+  cards.eq(0).show()
 
-    cards = $(".card-content")
-    leftArrow = $(".arrow-left")
-    rightArrow = $(".arrow-right")
+  rightArrow.click( ->
+    nextCard()  
+  )
 
-    current = 0
+  leftArrow.click( ->
+    previousCard()
+  )
 
-    leftArrow.hide()
-    cards.eq(0).show()
+  showCardFront = ()->
+    cardFront.show()
+    cardBack.hide()
+    frontHidden = false
+    backHidden = true
 
-    rightArrow.click( ->
-      
-      cards.eq(current).hide()
-      cards.eq(current + 1).show()
+  showCardBack = ()->
+    cardFront.hide()
+    cardBack.show()
+    frontHidden = true
+    backhidden = false
 
-      current++
+  nextCard = ()->
+    cards.eq(current).hide()
+    cards.eq(current + 1).show()
+    current++
+    if current > 0
+      leftArrow.show()
+    if current == cards.length - 1
+      rightArrow.hide()
+    showCardFront()
 
-      if current > 0
-        leftArrow.show()
+  previousCard = ()->
+    rightArrow.show()
+    cards.eq(current).hide()
+    cards.eq(current - 1).show()
+    current--
+    if current == 0
+      leftArrow.hide()
+    showCardFront() 
 
-      if current == cards.length - 1
-        rightArrow.hide()
-
-
-      cardFront.show()
-      cardBack.hide()
-      frontHidden = false
-      backHidden = true
-    )
-
-    leftArrow.click( ->
-
-      rightArrow.show()
-    
-      cards.eq(current).hide()
-      cards.eq(current - 1).show()
-
-      current--
-
-      if current == 0
-        leftArrow.hide()
-    
-      cardFront.show()
-      cardBack.hide()
-      frontHidden = false
-      backHidden = true
-
-    )
-
-
-
-
-
-
-
-
-
-    
-    

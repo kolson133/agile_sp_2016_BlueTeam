@@ -15,7 +15,7 @@
     <div class="card-content">
 
       <% if c.image.exists? %>
-        <%= image_tag c.image.url(:medium), :class => "card-front" %>
+        <%= image_tag c.image.url(:medium), :class => "card-front", :draggable => false %>
       <% else %> 
         <p class="card-front"><%= c.question %></p>
       <% end %>
@@ -28,4 +28,5 @@
   <% end %>
   
 </div>
+
 
