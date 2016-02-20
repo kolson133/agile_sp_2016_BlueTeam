@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post 'decks/:deck_id/cards/:id/next_card' => 'cards#next_card', :as => :next_card
   post 'decks/:deck_id/cards/:id/previous_card' => 'cards#previous_card', :as => :previous_card
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

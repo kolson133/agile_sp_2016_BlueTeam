@@ -45,5 +45,10 @@ group :development do
   gem 'spring'
   
   gem 'paperclip'
+  gem 'font-awesome-rails'
+  gem 'devise'
+  gem 'omniauth'
+  gem 'omniauth-facebook'
+  gem 'omniauth-twitter'
 end
 
