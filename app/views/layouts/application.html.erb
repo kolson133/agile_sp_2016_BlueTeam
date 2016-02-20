@@ -14,7 +14,11 @@
   <% if user_signed_in? %>
     <p>Logged in as: <%= current_user.name %> through <%= current_user.provider %>.</p>
   <% else %>
-    <%=link_to 'Sign In', new_user_session_url %>
+    <ul>
+      <li>Sign in with:</li>
+      <li><i class="fa fa-twitter"><%=link_to 'Twitter', user_omniauth_authorize_path(:twitter) %></i></li>
+      <li><i class="fa fa-facebook"><%=link_to 'Facebook', user_omniauth_authorize_path(:facebook) %></i></li>
+    </ul>
   <% end %>
 </div>
 <%= yield %>
