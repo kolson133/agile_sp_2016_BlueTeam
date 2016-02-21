@@ -14,14 +14,16 @@ $ ->
   card.on('touchstart mousedown', (e)->
     e.preventDefault()
     downX = e.clientX
+    touchDownX = e.changedTouches[0].pageX
   )
 
   card.on('touchend mouseup touchcancel', (e)->
     upX = e.clientX 
+    touchUpX = e.changedTouches[0].pageX
 
-    if downX > upX 
+    if downX > upX || touchDownX > touchUpX
       nextCard()
-    else if downX < upX
+    else if downX < upX || touchDownX < touchUpX
       previousCard()
     else
       target = $(e.target)
