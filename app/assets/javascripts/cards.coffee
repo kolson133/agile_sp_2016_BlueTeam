@@ -3,6 +3,8 @@ $ ->
   cardFront = $(".card .card-front")
   cardBack = $(".card .card-back")
 
+  hammertime = new Hammer(card)
+
   downX = 0
   upX = 0
 
@@ -11,19 +13,27 @@ $ ->
 
   cardBack.hide()
 
-  card.on('touchstart mousedown', (e)->
-    e.preventDefault()
-    downX = e.clientX
-    touchDownX = e.changedTouches[0].pageX
+  hammertime.on('tap', (e)->
+    target = $(e.target)
+
+    if !target.is('span')
+      if frontHidden
+        showCardFront()
+      else
+        showCardBack()
   )
 
-  card.on('touchend mouseup touchcancel', (e)->
-    upX = e.clientX 
-    touchUpX = e.changedTouches[0].pageX
+  card.on('mousedown', (e)->
+    e.preventDefault()
+    downX = e.clientX
+  )
 
-    if downX > upX || touchDownX > touchUpX
+  card.on('mouseup', (e)->
+    upX = e.clientX
+
+    if downX > upX
       nextCard()
-    else if downX < upX || touchDownX < touchUpX
+    else if downX < upX 
       previousCard()
     else
       target = $(e.target)
@@ -34,7 +44,15 @@ $ ->
         else
           showCardBack()
   )
-  
+
+  hammertime.on('swipeleft', (e)->
+    nextCard() 
+  )
+
+  hammertime.on('swiperight', (e)->
+    previousCard() 
+  )
+
   cards = $(".card-content")
   leftArrow = $(".arrow-left")
   rightArrow = $(".arrow-right")
