@@ -11,15 +11,13 @@ $ ->
 
   cardBack.hide()
 
-  card.mousedown((e)->
+  card.on('touchstart mousedown', (e)->
+    e.preventDefault()
     downX = e.clientX
   )
 
-  card.mouseup((e)->
-    upX = e.clientX
-  )
-  
-  card.click((e)->
+  card.on('touchend mouseup touchcancel', (e)->
+    upX = e.clientX 
 
     if downX > upX 
       nextCard()
@@ -65,21 +63,23 @@ $ ->
     backhidden = false
 
   nextCard = ()->
-    cards.eq(current).hide()
-    cards.eq(current + 1).show()
-    current++
-    if current > 0
-      leftArrow.show()
-    if current == cards.length - 1
-      rightArrow.hide()
-    showCardFront()
+    if rightArrow.is(':visible')
+      cards.eq(current).hide()
+      cards.eq(current + 1).show()
+      current++
+      if current > 0
+        leftArrow.show()
+      if current == cards.length - 1
+        rightArrow.hide()
+      showCardFront()
 
   previousCard = ()->
-    rightArrow.show()
-    cards.eq(current).hide()
-    cards.eq(current - 1).show()
-    current--
-    if current == 0
-      leftArrow.hide()
-    showCardFront() 
+    if leftArrow.is(':visible')
+      rightArrow.show()
+      cards.eq(current).hide()
+      cards.eq(current - 1).show()
+      current--
+      if current == 0
+        leftArrow.hide()
+      showCardFront() 
 
