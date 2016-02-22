@@ -33,23 +33,26 @@
 <% end %>
 
 <% if @deck.cards.present? %>
-  <h4>List of cards in this deck:</h4>
+  <h4>List of your cards in this deck [<%= @deck.cards.count %>]: </h4>
   <% @deck.cards.each_with_index do |card, i| %>
-      <p>
+    <div id="cardDisplay">
         <% unless card.is_disabled %>
-          <% # <%= link_to "---Card \##{i + 1}---", deck_card_path(@deck, card), :id=> "deckCardLinks" %>
-          --Card #<%= i + 1 %>---<br>
-          Question: <%= card.question %><br>
-          Answer: <%= card.answer %><br><br>
+          <p>Card #<%= i + 1 %></p>
+          <div id="cardQuestion">
+            <p><% if card.image.exists? %> <%= image_tag card.image.url(:thumb) %> <% else %> Question: <%= card.question %> <% end %></p>
+          </div>
+          <div id="cardAnswer">
+            <p>Answer: <%= card.answer %></p>
+          </div>
           <%= link_to 'Disable', disable_deck_card_path(@deck, card), :method => :post, :id => "deleteLink" %>
         <% else %>
           ---Card #<%= i + 1 %>---<br>
           Currently disabled<br><br>
         <% end %>
-        <%= link_to 'Delete', deck_card_path(@deck, card), method: :delete, :id => "deleteLink", data: { confirm: 'Are you sure that you want to delete this card?' } %></td>
-        <%= link_to 'Edit', edit_deck_card_path(@deck, card), :id => "editCreateLink" %>
-      </p><br>
-  <% end %>
+    <%= link_to 'Delete', deck_card_path(@deck, card), method: :delete, :id => "deleteLink", data: { confirm: 'Are you sure that you want to delete this card?' } %></td>
+    <%= link_to 'Edit', edit_deck_card_path(@deck, card), :id => "editCreateLink" %>
+  </div>
+<% end %>
 <% else %>
     <h4>No cards in this deck.</h4>
 <% end %>

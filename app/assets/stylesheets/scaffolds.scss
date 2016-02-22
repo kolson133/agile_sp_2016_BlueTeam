@@ -37,6 +37,54 @@ div {
   }
 }
 
+#cardDisplay {
+  border: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  clear: both;
+  height: 215px;
+  margin: 25px;
+  width: 310px;
+
+  #cardAnswer {
+    border: 1px solid black;
+    display: inline-block;
+    height: 130px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    width: 130px;
+  }
+
+  #cardQuestion {
+    border: 1px solid black;
+    display: inline-block;
+    float: left;
+    height: 130px;
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow: hidden;
+    width: 130px;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5px;
+      width: 120px;
+    }
+
+  }
+
+  a {
+    margin-left: 25px;
+  }
+
+  p {
+    margin: 0 0 5px 5px;
+  }
+
+}
+
 #login {
   ul {
     list-style: none;
