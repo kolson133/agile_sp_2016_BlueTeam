@@ -85,6 +85,23 @@ div {
 
 }
 
+#cardDisabled {
+
+  border: 1px solid black;
+  height: 215px;
+  margin: 25px;
+  width: 310px;
+
+  a {
+    margin-left: 65px;
+  }
+
+  p {
+    margin: 0 0 155px 5px;
+  }
+
+}
+
 #login {
   ul {
     list-style: none;
