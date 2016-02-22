@@ -2,7 +2,7 @@ require 'open-uri'
 class Card < ActiveRecord::Base
   belongs_to :deck
   attr_accessor :image, :image_remote_url, :raw_latex
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "120x120#" }
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "120x120>" }
   before_validation :download_remote_image, :if => :image_url_provided?
   before_validation :download_remote_equation, :if => :raw_latex_provided?
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
