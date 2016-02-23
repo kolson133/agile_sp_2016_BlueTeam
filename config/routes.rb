@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "decks#index"
+  root "home#index"
 
   resources :decks do
     resources :cards
