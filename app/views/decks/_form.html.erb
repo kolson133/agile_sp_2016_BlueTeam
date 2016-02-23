@@ -13,29 +13,37 @@
     <%= f.text_area :description %>
   </div>
   <div class="control">
-  <div class="control">
     <%= f.label "Category", class: 'control-label' %>
   </div>
   <div class="controls">
-    <%= f.select(:category, options_for_select([['Other', 'Other'], ['Science', 'Science'], ['History', 'History'], ['Language', 'Language'], ['Math', 'Math']])) %>
+    <%= f.select(:category, options_for_select([['Other', 'Other'], ['Science', 'Science'], 
+    ['History', 'History'], ['Language', 'Language'], ['Math', 'Math']], selected: @deck.category)) %>
   </div>
+  
+  <div class="control">
     <%= f.label "Change Background Color", class: 'control-label' %>
   </div>
   <div class="controls">
-    <%= f.select(:color_type, options_for_select([['None', ''], ['Lime', '#00ff00'], ['Teal', '#00FFFF'], ['Purple', '#CC0099'], ['Orange', '#ff8c1a']])) %>
+    <%= f.select(:color_type, options_for_select([['None', ''], ['Lime', '#00ff00'], 
+    ['Teal', '#00FFFF'], ['Purple', '#CC0099'], ['Orange', '#ff8c1a']], selected: @deck.color_type)) %>
   </div>
+  
   <div class="control">
     <%= f.label "Change Font Style", class: 'control-label' %>
   </div>
   <div class="controls">
-    <%= f.select(:font_type, options_for_select([['None', ''], ['Bold', 'bold'], ['Italic', 'italic'], ['Small Caps', 'small-caps'], ['Oblique', 'oblique']])) %>
+    <%= f.select(:font_type, options_for_select([['None', ''], ['Bold', 'bold'], 
+    ['Italic', 'italic'], ['Small Caps', 'small-caps'], ['Oblique', 'oblique']], selected: @deck.font_type)) %>
   </div>
-    <div class="control">
+  
+  <div class="control">
     <%= f.label "Change Foreground", class: 'control-label' %>
   </div>
   <div class="controls">
-    <%= f.select(:foreground_color, options_for_select([['None', ''], ['Navy', 'navy'], ['Maroon', 'maroon'], ['White', 'white'], ['Orange', '#ff8c1a']])) %>
+    <%= f.select(:foreground_color, options_for_select([['None', ''], ['Navy', 'navy'], 
+    ['Maroon', 'maroon'], ['White', 'white'], ['Orange', '#ff8c1a']], selected: @deck.foreground_color)) %>
   </div>
+  
   <br>
   <div class="actions">
     <%= f.submit :id =>"update-button"%> <%= link_to 'Cancel', @deck, :id => "deleteLink" %>
