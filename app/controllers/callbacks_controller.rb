@@ -1,12 +1,14 @@
 class CallbacksController < Devise::OmniauthCallbacksController
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    sign_in_and_redirect @user
+    flash[:notice] =  I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
+    sign_in_and_redirect @user, :event => :authentication
   end
   
   def twitter
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    sign_in_and_redirect @user
+    flash[:notice] =  I18n.t "devise.omniauth_callbacks.success", :kind => "Twitter"
+    sign_in_and_redirect @user, :event => :authentication
   end
   
   def google_oauth2
