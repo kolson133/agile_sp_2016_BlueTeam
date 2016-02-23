@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160219043419) do
     t.integer  "deck_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.string   "image"
     t.boolean  "is_disabled",        default: false
     t.string   "cards_file_name"
     t.string   "cards_content_type"
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160219043419) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "color_type"
+    t.string   "image"
     t.string   "font_type"
     t.string   "description"
     t.string   "foreground_color"
