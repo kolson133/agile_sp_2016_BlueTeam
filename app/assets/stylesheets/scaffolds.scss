@@ -42,8 +42,9 @@ div {
   border-left: 1px solid black;
   border-right: 1px solid black;
   clear: both;
+  display: inline-block;
   height: 215px;
-  margin: 25px;
+  margin: 12px;
   width: 310px;
 
   #cardAnswer {
