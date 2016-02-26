@@ -12,7 +12,8 @@
 </head>
 <body>
 <%= link_to 'Home', root_path, :id => "navLink" %>  |&nbsp
-<%= link_to 'Decks', decks_url, :id => "navLink" %>
+<%= link_to 'Decks', decks_url, :id => "navLink" %> |&nbsp
+<%= link_to 'Shared', shared_decks_path, :id => "navLink" %>
   <% if user_signed_in? %>
     <p>Logged in as: <%= current_user.name %>.</p>
   <% else %>

@@ -61,10 +61,11 @@ class DecksController < ApplicationController
   end
 
   def share
+    @deck = Deck.find(params[:deck_id])
     respond_to do |format|
       @deck.share
       if @deck.save
-        format.html { redirect_to edit_deck_path(@deck), notice: 'Deck was successfully shared.' }
+        format.html { redirect_to shared_decks_path, notice: 'Deck was successfully shared.' }
         format.json { render :show, status: :ok, location: @deck }
       else
         format.html { render :edit }

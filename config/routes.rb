@@ -2,14 +2,11 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  get 'shared_decks', to: 'shared_decks#index', :as => :shared_decks
+  get 'shared_decks', to: 'shared_decks#index', as: :shared_decks
+  patch 'decks/:deck_id/share_deck', to: 'decks#share', action: :share, as: :share_deck
 
   resources :decks do
     resources :cards
-
-    member do
-      patch :share
-    end
   end
 
   post 'decks/:deck_id/cards/:id/disable_card' => 'cards#disable_card', :as => :disable_deck_card

@@ -13,10 +13,11 @@
     <tbody>
       <% @decks.each do |deck| %>
         <tr>
-          <td><%= link_to deck.title, deck, :id => "deckCardLinks" %>&nbsp</td>
+          <td><%= deck.title %>&nbsp&nbsp&nbsp</td>
           <td><%= deck.author %>&nbsp&nbsp&nbsp</td>
           <td><%= deck.category %>&nbsp&nbsp&nbsp</td>
           <td><%= deck.description %>&nbsp&nbsp&nbsp</td>
+          <td><%= link_to 'Play', deck_card_path(deck, 1), :id => "play-button" %></td>
         </tr>
       <% end %>
     </tbody>
