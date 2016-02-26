@@ -2,13 +2,18 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get 'shared_decks', to: 'shared_decks#index', :as => :shared_decks
+
   resources :decks do
     resources :cards
+
+    member do
+      patch :share
+    end
   end
 
   post 'decks/:deck_id/cards/:id/disable_card' => 'cards#disable_card', :as => :disable_deck_card
 
-  get 'shared_decks/:id', to: 'shared_decks#show'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 

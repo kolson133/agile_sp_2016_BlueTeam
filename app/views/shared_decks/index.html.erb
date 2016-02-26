@@ -1,0 +1,26 @@
+<h1>Shared Decks</h1>
+<% if @decks.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @decks.each do |deck| %>
+        <tr>
+          <td><%= link_to deck.title, deck, :id => "deckCardLinks" %>&nbsp</td>
+          <td><%= deck.author %>&nbsp&nbsp&nbsp</td>
+          <td><%= deck.category %>&nbsp&nbsp&nbsp</td>
+          <td><%= deck.description %>&nbsp&nbsp&nbsp</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>There are no decks to show</p>
+<% end %>
