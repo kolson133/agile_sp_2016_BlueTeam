@@ -23,11 +23,13 @@
     background-position: 10px center, center center;
     background-repeat: no-repeat, repeat;
     border-radius: 4px;
+    color: white;
     font-family:"Merriweather Sans", sans-serif;
     font-size: 14px;
     margin-bottom: 10px;
-    width: 160px;
+    width: 205px;
     box-shadow: 0 4px 2px -2px gray;
+    text-shadow: rgba(0, 0, 0, .4) -1px -1px 0;
     text-decoration: none;
     float: right;
 }
@@ -36,7 +38,6 @@
     text-decoration: none;
     background-size: 30px 30px, cover;
     background-image: url(http://dl.dropbox.com/u/109135764/gplus.png), -webkit-gradient(linear, left top, left bottom, color-stop(1%, #353233), color-stop(100%, #1d1b1c));
-    color: #dd4b39;
     text-align: center;
     line-height: 35px;
 }
@@ -46,16 +47,14 @@
     background-size: 25px 25px, cover;
     background-position: 10px center, center center;
     background-repeat: no-repeat, repeat;
-    color: #3b5998;
     text-align: center;
     line-height: 35px;
 }
 
 #twitter {
     background-image: url(http://dl.dropbox.com/u/109135764/twitterbird.png), -webkit-gradient(linear, left top, left bottom, color-stop(1%, #00aced), color-stop(99%, #00a9ff));
-    color: #4099FF;
     text-align: center;
-    line-height: 35px
+    line-height: 35px;
 }
 
 
