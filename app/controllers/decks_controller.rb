@@ -74,6 +74,21 @@ class DecksController < ApplicationController
     end
   end
 
+  # SORT 
+  def sort
+    @deck = Deck.find(params[:deck_id])
+    respond_to do |format|
+      @deck.sort
+      if @deck.save
+        format.html { redirect_to shared_decks_path, notice: 'Deck was successfully shared.' }
+        format.json { render :show, status: :ok, location: @deck }
+      else
+        format.html { render :edit }
+        format.json { render json: @deck.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /decks/1
   # DELETE /decks/1.json
   def destroy
