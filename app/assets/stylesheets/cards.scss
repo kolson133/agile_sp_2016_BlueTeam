@@ -3,6 +3,18 @@ $hoverColor: #007199;
 $cardWidth: 300px;
 $cardHeight: 200px;
 
+#shuffle_button {
+  bottom: -66px;
+  color: $navColor;
+  left: 128px;
+  position: absolute;
+
+  &:hover {
+    background-color: white;
+    color: $hoverColor;
+  }
+}
+
 div.card {
   border: 1px solid black;
   cursor: pointer;
