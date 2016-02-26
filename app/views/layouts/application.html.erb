@@ -19,9 +19,9 @@
     <p>Logged in as: <%= current_user.name %>.</p>
   <% else %>
     <div class="social-wrap">
-      <%=link_to 'Sign in with Twitter', user_omniauth_authorize_path(:twitter), :id => "twitter" %>
-      <%=link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook), :id => "facebook" %>
-      <%=link_to 'Sign in with Google', user_omniauth_authorize_path(:google_oauth2), :id => "googleplus" %>
+      <%=link_to '<i class="fa fa-twitter fa-fw"></i>Sign in with Twitter'.html_safe, user_omniauth_authorize_path(:twitter), :id => "twitter" %>
+      <%=link_to '<i class="fa fa-facebook fa-fw"></i>Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), :id => "facebook" %>
+      <%=link_to '<i class="fa fa-google fa-fw"></i>Sign in with Google'.html_safe, user_omniauth_authorize_path(:google_oauth2), :id => "googleplus" %>
     </div>
   <% end %>
 <%= yield %>
