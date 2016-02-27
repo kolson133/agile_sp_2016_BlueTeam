@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'shared_decks', to: 'shared_decks#index', as: :shared_decks
   patch 'decks/:deck_id/share_deck', to: 'decks#share', action: :share, as: :share_deck
+  patch 'shared_decks/:deck_id/remove_shared', to: 'decks#remove_shared', action: :remove_shared, as: :remove_shared
 
   get 'sort_category', to: 'sort_category#index', as: :sort_category
 

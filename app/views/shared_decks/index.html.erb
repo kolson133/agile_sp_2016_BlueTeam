@@ -18,6 +18,9 @@
           <td><%= deck.category %>&nbsp&nbsp&nbsp</td>
           <td><%= deck.description %>&nbsp&nbsp&nbsp</td>
           <td><%= link_to 'Play', deck_card_path(deck, 1), :id => "play-button" %></td>
+          <% if !user_signed_in? %>
+            <td><%= link_to 'Remove', remove_shared_path(deck), :id => "deleteLink", method: :patch, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

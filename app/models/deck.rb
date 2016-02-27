@@ -8,4 +8,8 @@ class Deck < ActiveRecord::Base
     self.slug = SecureRandom.urlsafe_base64
   end
 
+  def remove_shared
+    self.slug = nil
+  end
+
 end

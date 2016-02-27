@@ -65,7 +65,21 @@ class DecksController < ApplicationController
     respond_to do |format|
       @deck.share
       if @deck.save
-        format.html { redirect_to shared_decks_path, notice: 'Deck was successfully shared.' }
+        format.html { redirect_to shared_decks_path }
+        format.json { render :show, status: :ok, location: @deck }
+      else
+        format.html { render :edit }
+        format.json { render json: @deck.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def remove_shared 
+    @deck = Deck.find(params[:deck_id])
+    respond_to do |format|
+      @deck.remove_shared
+      if @deck.save
+        format.html { redirect_to shared_decks_path }
         format.json { render :show, status: :ok, location: @deck }
       else
         format.html { render :edit }
