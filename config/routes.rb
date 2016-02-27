@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'shared_decks', to: 'shared_decks#index', as: :shared_decks
   patch 'decks/:deck_id/share_deck', to: 'decks#share', action: :share, as: :share_deck
 
+  get 'sort_category', to: 'sort_category#index', as: :sort_category
+
   resources :decks do
     resources :cards
   end
