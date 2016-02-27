@@ -20,7 +20,7 @@
         <td><%= deck.category %>&nbsp&nbsp&nbsp</td>
         <td><%= deck.description %>&nbsp&nbsp&nbsp</td>
         <td><%= link_to 'Edit', edit_deck_path(deck), :id => "editCreateLink" %> &nbsp</td> 
-        <% unless deck.slug.present? %>
+        <% unless deck.slug.present? or !user_signed_in? %>
           <td><%= link_to 'Share', share_deck_path(deck), :method => :patch, :id => 'editCreateLink' %> &nbsp</td>
         <% end %>
         <td><%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure that you want to delete this deck?' }, :id => "deleteLink" %></td>
